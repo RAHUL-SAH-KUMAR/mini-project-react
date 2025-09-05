@@ -1,8 +1,8 @@
-import SearchBox from "./SearchBox"
-import InfoBox from "./InfoBox"    // fix case
-import { useState } from "react"
+import SearchBox from "./SearchBox";
+import InfoBox from "./InfoBox";
+import { useState } from "react";
 
-export default function WeatherApp() {    // capitalize component
+export default function WeatherApp() {
   const [WeatherInfo, setWeatherInfo] = useState({
     city: "Delhi",
     feelslike: 34.23,
@@ -13,9 +13,7 @@ export default function WeatherApp() {    // capitalize component
     weather: "overcast clouds"
   });
 
-  let updateInfo = (newInfo) => {
-    setWeatherInfo(newInfo);
-  }
+  const updateInfo = (newInfo) => setWeatherInfo(newInfo);
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -23,5 +21,5 @@ export default function WeatherApp() {    // capitalize component
       <SearchBox updateInfo={updateInfo} />
       <InfoBox info={WeatherInfo} />
     </div>
-  )
+  );
 }

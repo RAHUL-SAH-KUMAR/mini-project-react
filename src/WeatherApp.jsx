@@ -10,7 +10,7 @@ export default function WeatherApp() {
     temp: 37.42,
     tempMax: 37.42,
     tempMin: 37.42,
-    weather: "overcast clouds"
+    weather: "overcast clouds",
   });
 
   const updateInfo = (newInfo) => setWeatherInfo(newInfo);

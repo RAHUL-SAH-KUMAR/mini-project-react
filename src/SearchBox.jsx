@@ -11,8 +11,11 @@ export default function SearchBox({ updateInfo }) {
 
   const getWeatherInfo = async () => {
     try {
-      const response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
+      const response = await fetch(
+        `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
+      );
       const jsonResponse = await response.json();
+
       return {
         city,
         temp: jsonResponse.main.temp,
@@ -20,7 +23,7 @@ export default function SearchBox({ updateInfo }) {
         tempMax: jsonResponse.main.temp_max,
         humidity: jsonResponse.main.humidity,
         feelslike: jsonResponse.main.feels_like,
-        weather: jsonResponse.weather[0].description
+        weather: jsonResponse.weather[0].description,
       };
     } catch {
       throw error;
@@ -28,6 +31,7 @@ export default function SearchBox({ updateInfo }) {
   };
 
   const handleChange = (evt) => setCity(evt.target.value);
+
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
@@ -51,8 +55,11 @@ export default function SearchBox({ updateInfo }) {
           value={city}
           onChange={handleChange}
         />
-        <br /><br />
-        <Button variant="contained" type="submit">Search</Button>
+        <br />
+        <br />
+        <Button variant="contained" type="submit">
+          Search
+        </Button>
         {error && <p style={{ color: "red" }}>No such place exists!</p>}
       </form>
     </div>
